@@ -7,7 +7,9 @@ import { Link, Navigate } from 'react-router-dom';
 import useSWR from 'swr';
 
 const LogIn = () => {
-    const { data, error, mutate } = useSWR('/api/users', fetcher);
+    const { data, error, mutate } = useSWR('/api/users', fetcher, {
+        dedupingInterval: 2000 //2초
+    });
 
     const [logInError, setLogInError] = useState(false);
     const [email, onChangeEmail] = useInput('');
@@ -26,7 +28,7 @@ const LogIn = () => {
                     },
                 )
                 .then((response) => {
-                    mutate()
+                    mutate(response.data, false) //OPTIMISTIC UI : 서버에 요청이 당연히 성공할것이라 예측하고 바로 표시해주기
                 })
                 .catch((error) => {
                     setLogInError(error.response?.data?.statusCode === 401);

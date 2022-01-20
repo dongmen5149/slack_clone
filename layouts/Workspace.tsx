@@ -1,6 +1,7 @@
 import fetcher from "@utils/fetcher";
 import axios from "axios";
 import React, { FC, useCallback } from "react";
+import { Navigate } from "react-router";
 import useSWR from "swr";
 
 const Workspace: FC = ({ children }) => {
@@ -8,13 +9,17 @@ const Workspace: FC = ({ children }) => {
 
     const onLogout = useCallback(() => {
         axios
-            .post("/api/users ", null, {
+            .post("/api/users/logout ", null, {
                 withCredentials: true,
             })
             .then(() => {
-                mutate
+                mutate(false, false)
             })
     }, [])
+
+    if (!data) {
+        return <Navigate to="/login" />;
+    }
 
     return (
         <div>
