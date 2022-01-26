@@ -9,19 +9,24 @@ interface Props {
 }
 const Menu: FC<Props> = ({ children, style, show, onCloseModal, closeButton }) => {
 
-    const stopProPagation = useCallback((e) => {
-        e.stopProPagation();
+    const preventDefault = useCallback((e) => {
+        e.preventDefault();
     }, []);
 
+    if (!show) return null;
 
     return (
         <CreateMenu onClick={onCloseModal}>
-            <div style={style} onClick={stopProPagation}>
+            <div style={style} onClick={preventDefault}>
                 {closeButton && <CloseModalButton onClick={onCloseModal}>&times;</CloseModalButton>}
                 {children}
             </div>
         </CreateMenu>
     )
 }
+
+Menu.defaultProps = {
+    closeButton: true,
+};
 
 export default Menu

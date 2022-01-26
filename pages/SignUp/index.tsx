@@ -66,7 +66,7 @@ const SignUp = () => {
     }
 
     if (data) {
-        return <Navigate to="/workspace/channel/" />;
+        return <Navigate to="/workspace/sleact/channel/일반" />;
     }
 
     return (
