@@ -9,10 +9,10 @@ const Workspace = loadable(() => import('@layouts/Workspace'));
 const App = () => {
     return (
         <Routes>
-            <Route path="/" element={<LogIn></LogIn>} />
-            <Route path="/login" element={<LogIn></LogIn>} />
-            <Route path="/signup" element={<SignUp></SignUp>} />
-            <Route path="/workspace/:workspace/*" element={<Workspace></Workspace>} />
+            <Route path="/" element={<LogIn />} />
+            <Route path="/login" element={<LogIn />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/workspace/:workspace/*" element={<Workspace />} />
         </Routes>
     );
 }

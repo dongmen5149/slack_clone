@@ -1,10 +1,23 @@
-import React from "react";
-import { Container } from "./styles";
+import ChatBox from "@components/Chatbox";
+import ChatList from "@components/ChatList";
+import useInput from "@hooks/useInput";
+import React, { useCallback, VFC } from "react";
+import { Container, Header } from "./styles";
 
 const Channel = () => {
+    const [chat, onChangeChat] = useInput('');
+
+    const onSubmitForm = useCallback((e) => {
+        e.preventDefault();
+    }, []);
+
     return (
         <Container>
-            <div>로그인하셨슴당</div>
+            <Header>
+                채널
+            </Header>
+            <ChatList />
+            <ChatBox chat={chat} onChangeChat={onChangeChat} onSubmitForm={onSubmitForm} />
         </Container>
     )
 }
