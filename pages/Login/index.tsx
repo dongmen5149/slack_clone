@@ -27,8 +27,8 @@ const LogIn = () => {
                         withCredentials: true,
                     },
                 )
-                .then((response) => {
-                    mutate(response.data, false) //OPTIMISTIC UI : 서버에 요청이 당연히 성공할것이라 예측하고 바로 표시해주기
+                .then(() => {
+                    mutate(false, false) //OPTIMISTIC UI : 서버에 요청이 당연히 성공할것이라 예측하고 바로 표시해주기
                 })
                 .catch((error) => {
                     setLogInError(error.response?.data?.statusCode === 401);

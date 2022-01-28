@@ -73,8 +73,8 @@ export const EachMention = styled.button<{ focus: boolean }>`
     margin-right: 5px;
   }
   ${({ focus }) =>
-        focus &&
-        `
+    focus &&
+    `
     background: #1264a3;
     color: white;
   `};

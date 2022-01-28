@@ -22,6 +22,7 @@ const ChatBox: VFC<Props> = ({ chat, onSubmitForm, onChangeChat, placeholder }) 
     const { data: memberData } = useSWR<IUser[]>(userData ? `/api/workspaces/${workspace}/members` : null, fetcher);
 
     const textareaRef = useRef<HTMLTextAreaElement>(null);
+
     useEffect(() => {
         if (textareaRef.current) {
             autosize(textareaRef.current);
