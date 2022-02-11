@@ -14,7 +14,7 @@ mysql username부분 자신의 mysql username으로 수정
 
 ## 4. back/.env파일 생성
 
-COOKIE_SECRET=쿠키명
+COOKIE_SECRET=쿠키명  
 MYSQL_PASSWORD=mysql비밀번호
 
 ## 5. back, client npm run dev
@@ -22,3 +22,4 @@ MYSQL_PASSWORD=mysql비밀번호
 back 에서 npm run dev, clone폴더에서 npm run dev 2번
 
 # Preview
+![Slackgif파일](https://user-images.githubusercontent.com/78216411/153555428-5e4a0528-8d22-4dca-adc6-7e650c7b06d6.gif)
